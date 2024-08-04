@@ -93,7 +93,7 @@ function StartKiosk([string]$url, [int]$timeout){
     [System.Windows.Forms.Cursor]::Position = $originalMousePosition
 }
 
-$timeout = 60 * 3
+$timeout = 60 * 3 # 3 minutes
 # $url = "https://fakeupdate.net/win10ue/"
 $url = "https://kaliiiiiiiiii.github.io/rickroll/"
 StartKiosk  $url $timeout

