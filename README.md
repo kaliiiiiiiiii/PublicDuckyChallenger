@@ -9,7 +9,7 @@
 > **Note** \
 > all tools target and have been tested for Windows
 
-## Urlshortener
+## URL shortener
 Shortens an url with only "safe" characters for the domain [is.gd](https://is.gd)
 
 <details>
@@ -89,7 +89,7 @@ If for some reason, you can't see your desktop anymore, perform the following st
 4. 
 </details>
 
-#### Password harvester
+## Password harvester
 Steal all available passwords from Opera, Brave, Chrome and Firefox
 
 <details>
