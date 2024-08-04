@@ -4,12 +4,12 @@
 > Any illegal activities are strictly forbidden.
 
 
-## Tools
+# Tools
 
 > **Note** \
 > all tools target and have been tested for Windows
 
-#### Urlshortener
+## Urlshortener
 Shortens an url with only "safe" characters for the domain [is.gd](https://is.gd)
 
 <details>
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
 </details>
 
-#### Rickroll (powershell)
+## Rickroll (powershell)
 - opens MS Edge on url
 - sets audio volume to max
 - user can't close it
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 
 </details>
 
-#### Edge email
+## Edge email
 Sends an E-Mail over the microsoft account on the device
 
 <details>
