@@ -122,6 +122,56 @@ if __name__ == "__main__":
 
 </details>
 
+#### Edge email
+Sends an E-Mail over the microsoft account on the device
+
+<details>
+<summary>Details</summary>
+
+file: [edge_email.py](edge_email.py)
+> **Note** \
+> This currently only supports english and german devices.
+> Feel free to add languages 
+
+### requirements
+```shell
+pip install --upgrade selenium-driverless
+```
+
+### Usage
+```shell
+ python edge_email.py "test@test.com" "Test", "Hello there!"
+```
+
+```shell
+> python edge_email.py -h
+# usage: edge_email.py [-h] [--headfull] [--cc CC] to subject content
+# 
+# positional arguments:
+#   to          The destination to send the E-Mail to
+#   subject     Subject to send the E-Mail with
+#   content     The content to send
+# 
+# options:
+#   -h, --help  show this help message and exit
+#   --headfull  open a window for edge
+#   --cc CC
+```
+or
+```python
+import asyncio
+from edge_email import write_email
+
+async def main():
+    await write_email("test@test.com", "Test", "Hello there!")
+    print("E-Mail written")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+</details>
+
 ## Acknowledgments
 Inspiration, code snippets, etc.
 
