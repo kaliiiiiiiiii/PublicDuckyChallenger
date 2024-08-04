@@ -131,7 +131,11 @@ Sends an E-Mail over the microsoft account on the device
 file: [edge_email.py](edge_email.py)
 > **Note** \
 > This currently only supports english and german devices.
-> Feel free to add languages 
+> Feel free to add languages at [L48-L77](edge_email.py#L48-L77)
+
+This works
+because Microsoft apparently decided
+to automatically log in with the microsoft account when creating a new MS-Edge profile
 
 ### requirements
 ```shell
