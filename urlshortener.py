@@ -25,9 +25,15 @@ async def check_url(key: str):
     url = f"https://is.gd/{key}"
     async with aiohttp.request("GET", url, allow_redirects=False) as resp:
         if resp.status == 404:
-            return key
-        elif resp.status in [301, 200, 410]:
-            return False
+            return key, 1
+        elif resp.status == 301:
+            loc = resp.headers.get("Location","")
+            taken = 2
+            if loc == "":
+                taken = 3
+            return [loc, url], taken
+        elif resp.status in [200, 410]:
+            return "", 3
         else:
             raise ValueError(f"got unexpected response status: {resp.status} for {url}")
 
@@ -40,7 +46,7 @@ async def create(url: str, key:str) -> str:
         return json.loads(await resp.text())["shorturl"]
 
 
-async def find_shortest_ok(_range: range = range(5, 10)):
+async def find_shortest_ok(url,_range: range = range(5, 10)):
     gen = urls_gen(_range)
     stop = False
     while not stop:
@@ -53,15 +59,21 @@ async def find_shortest_ok(_range: range = range(5, 10)):
             except StopIteration:
                 stop = True
                 break
-        for res in await asyncio.gather(*futs):
-            if res:
-                return res
+        for res, taken in await asyncio.gather(*futs):
+            if taken == 1:
+                return res, False
+            elif taken == 2:
+                got_url, short = res
+                if got_url == url:
+                    return short, True
     raise 
 
 
 async def create_short(url: str,_range: range = range(5, 10)):
-    key = await find_shortest_ok(_range)
-    return await create(url, key)
+    key_or_url, is_ok = await find_shortest_ok(url, _range)
+    if is_ok:
+        return key_or_url
+    return await create(url, key_or_url)
 
 
 async def main(url):
