@@ -32,7 +32,7 @@ pip install --upgrade aiohttp
 
 ### usage
 ```shell
-python urlshortener.py 
+python urlshortener.py https://kaliiiiiiiiii.github.io/rickroll/
 # https://is.gd/tuion
 ```
 or
