@@ -21,7 +21,7 @@
 </picture>
 
 
-## Key pressed by BadUSB
+## Keys pressed by BadUSB
 
 1. `WIN` + `r` which opens a command prompt
     ![Windows 10 Run Command](assets/Windows10RunCommand.png)
@@ -32,6 +32,8 @@
 The keyboard layout used for the BadUSB has to match the one chosen at the OS. \
 If this is not the case,
 some keys which are placed at different locations in the different layouts will output the wrong character.
+
+For Arduino's keyboard library, this can be adapted for example using [github.com/Necr0tizing/ArduinoKeyboardLayouts](https://github.com/Necr0tizing/ArduinoKeyboardLayouts)
 
 # Payloads
 
