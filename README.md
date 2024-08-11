@@ -3,6 +3,10 @@
 > I (the author) take no responsibility or liability related to its usage.
 > Any illegal activities are strictly forbidden.
 
+> **Note** \
+> all code targets and has been tested for Windows
+
+
 
 # Payloads
 
@@ -17,9 +21,6 @@
   />
   <img src="assets/Payloads.png" />
 </picture>
-
-> **Note** \
-> all code targets and has been tested for Windows
 
 ## URL shortener
 Shortens an url with only "safe" characters for the domain [is.gd](https://is.gd)
