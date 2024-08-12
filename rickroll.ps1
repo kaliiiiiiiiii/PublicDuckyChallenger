@@ -1,5 +1,5 @@
-# add audio interface
-# https://stackoverflow.com/a/31751275/20443541
+# add audio interface type definition
+#
 Add-Type -TypeDefinition @'
 using System.Runtime.InteropServices;
 [Guid("5CDF2C82-841E-4546-9722-0CF74078229A"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -54,6 +54,7 @@ public class Audio
 Add-Type -AssemblyName System.Windows.Forms
 
 function StartEdge([string]$url, [int]$timeout){
+    # start MS edge in kiosk mode at utl
     if($timeout -ne 0){Start-Sleep -Milliseconds $timeout}
     $process = Start-Process "msedge" -WindowStyle Maximized -PassThru -ArgumentList "--edge-kiosk-type=fullscreen", "--autoplay-policy=no-user-gesture-required","--start-fullscreen","--disable-infobars", "--no-first-run","--kiosk","--start-maximized", "--disable-pinch", "--overscroll-history-navigation=0", "--touch-events=disabled", $url
     return $process

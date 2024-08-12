@@ -1,6 +1,5 @@
 import asyncio
-import json
-import traceback
+
 from edge_email import write_email
 import argparse
 
