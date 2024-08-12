@@ -16,6 +16,9 @@
 
 # Based on original work from: www.dumpzilla.org
 
+# based on https://github.com/unode/firefox_decrypt/blob/2a163faf6c22f62eb0b061fa3c0b317ae2e4a343/firefox_decrypt.py
+# & edited by @ kaliiiiiiiiii
+
 from __future__ import annotations
 import ctypes as ct
 import json

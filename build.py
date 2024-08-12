@@ -2,7 +2,7 @@ from PyInstaller.__main__ import run
 import argparse
 
 
-def build(file:str="steal.py"):
+def build(file: str = "steal.py"):
     run(pyi_args=["--onefile", "--collect-data", "selenium_driverless", "--collect-data", "numpy", "--collect-data",
                   "scipy", "--nowindowed", file])
 

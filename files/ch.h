@@ -4,7 +4,7 @@
   #define ALTGR 0x40
   #define SHIFT 0x80
   const uint8_t _asciimap[128] =
-  {
+  { // modified for swiss-german keyboard layout, notice the unsupported keys
 	0x00,          // NUL
 	0x00,          // SOH
 	0x00,          // STX

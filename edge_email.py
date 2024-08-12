@@ -8,6 +8,7 @@ from selenium_driverless.types.webelement import NoSuchElementException
 
 
 def find_edge_path() -> str:
+    # finds the path to `msedge.exe` on windows
     for item in map(
             os.environ.get,
             ("PROGRAMFILES", "PROGRAMFILES(X86)", "PROGRAMW6432"),
