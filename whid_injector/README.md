@@ -1,8 +1,6 @@
 ## Build instructions
 
-1. Start with the installation at [github.com/whid-injector/WHID/wiki#main-requirements](https://github.com/whid-injector/WHID/wiki#main-requirements)
-2. replace the files inside [`EvilCrowCable-Pro/@main/firmware`](https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware) with the ones in [this directory](/evil_crow_cable)
-3. edit the url at [payload.h](../evil_crow_cable/payload.h#L50) based on your needs
+See installation & Build instructions at [github.com/whid-injector/WHID/wiki#main-requirements](https://github.com/whid-injector/WHID/wiki#main-requirements)
 
 
 ## Change Keyboard layout
