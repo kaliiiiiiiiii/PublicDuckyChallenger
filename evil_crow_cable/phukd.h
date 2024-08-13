@@ -1,5 +1,6 @@
 // Based on Irongeek's PHUKD (Programmable HID USB Keystroke Dongle) Library: http://www.irongeek.com/i.php?page=security/programmable-hid-usb-keystroke-dongle
 
+// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
 /********************************************************************
  * Opens the run bar and executes the command. 
  ********************************************************************/

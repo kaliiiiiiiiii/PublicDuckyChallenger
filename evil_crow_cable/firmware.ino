@@ -5,6 +5,8 @@
 #include "pio_usb.h"
 #include "Adafruit_TinyUSB.h"
 
+// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
+
 #define HOST_PIN_DP   16
 
 #define MODIFIERKEY_LEFT_CTRL   (0x01)

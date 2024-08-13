@@ -1,6 +1,8 @@
 #ifndef CONFIG
 #define CONFIG
 
+// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
+
 // USB CONFIG - CHANGE VID/PID/MANUFACTURER/PRODUCT - SET "#define CHANGE_USB_CONFIG true" TO APPLY
 uint16_t vendor_id = 0x05ac;
 uint16_t product_id = 0x201e;
