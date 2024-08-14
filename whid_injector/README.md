@@ -1,4 +1,6 @@
 ## Build instructions
+> *Note:* \
+> This has only been tested with the Arduino IDE 2.3.2
 
 See installation & Build instructions at [github.com/whid-injector/WHID/wiki#main-requirements](https://github.com/whid-injector/WHID/wiki#main-requirements)
 
