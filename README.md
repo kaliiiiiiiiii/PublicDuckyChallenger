@@ -4,7 +4,7 @@
 > Any illegal activities are strictly forbidden.
 
 > **Note** \
-> all code targets and has been tested for Windows and Python==3.10.11
+> All code has been tested and targets Windows and Python==3.10.11
 
 
 ### downloading this repo
