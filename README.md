@@ -8,7 +8,7 @@
 
 
 ### downloading this repo
-assumes having git-cli and [Python~=3.10](https://www.python.org/downloads/release/python-31011/) already installed
+This repo requires having git-cli and [Python~=3.10](https://www.python.org/downloads/release/python-31011/) already installed
 ```
 git clone https://github.com/kaliiiiiiiiii/PublicDuckyChallenger
 cd PublicDuckyChallenger
@@ -259,6 +259,11 @@ if __name__ == "__main__":
 
 <details>
 <summary>Instructions</summary>
+
+> **Note** \
+> In order to minimize the executables size,
+> you might consider using a python
+> [`venv`](https://docs.python.org/3/library/venv.html) and only installing the required packages
 
 ### Requirements
 ```shell
