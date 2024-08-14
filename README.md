@@ -4,7 +4,15 @@
 > Any illegal activities are strictly forbidden.
 
 > **Note** \
-> all code targets and has been tested for Windows
+> all code targets and has been tested for Windows and Python==3.10.11
+
+
+### downloading this repo
+assumes having git-cli and [Python~=3.10](https://www.python.org/downloads/release/python-31011/) already installed
+```
+git clone https://github.com/kaliiiiiiiiii/PublicDuckyChallenger
+cd PublicDuckyChallenger
+```
 
 # Attack flow
 
