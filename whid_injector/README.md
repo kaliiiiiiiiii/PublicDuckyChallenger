@@ -4,7 +4,9 @@
 > - Only flashing the file at [ESPloitV2_whid/source/Arduino_32u4_Code/Arduino_32u4_Code.ino](https://github.com/whid-injector/WHID/blob/master/ESPloitV2_whid/source/Arduino_32u4_Code/Arduino_32u4_Code.ino) is relevant for the keyboard layout.
 > - For flashing [ESPloitV2_whid/source/ESP_Code](https://github.com/whid-injector/WHID/tree/master/ESPloitV2_whid/source/ESP_Code),
 > [ESPloitV2_whid/flashing/esp8266Programmer/esp8266Programmer.ino](https://github.com/whid-injector/WHID/blob/master/ESPloitV2_whid/flashing/esp8266Programmer/esp8266Programmer.ino) has
-> to be flashed first, and after that `Arduino_32u4_Code.ino` again
+> to be flashed first, and after that `Arduino_32u4_Code.ino` again [docs](https://github.com/whid-injector/WHID/blob/master/ESPloitV2_whid/flashing/README.md).
+> On an already pref-flashed device, this is **not recommended** and a complex process,
+> which can lead to potentially soft-bricking the device.
 
 See installation, build and usage instructions at [github.com/whid-injector/WHID/wiki#main-requirements](https://github.com/whid-injector/WHID/wiki#main-requirements)
 
