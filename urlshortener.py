@@ -1,5 +1,7 @@
 import argparse
 import asyncio
+import typing
+
 import aiohttp
 import itertools
 from urllib import parse
@@ -13,7 +15,7 @@ good_chars = (  # characters which are in the same place for different keyboard 
 good_chars = [*good_chars]
 
 
-def char_gen(_range: range = range(5, 10)):
+def char_gen(_range: range = range(5, 10)) -> typing.Generator[str, None, None]:
     # generates A, B, C... to ZZZZ for the length
     for _length in _range:
         for chars in itertools.permutations(good_chars, r=_length):
@@ -21,7 +23,7 @@ def char_gen(_range: range = range(5, 10)):
             yield string
 
 
-async def check_url(key: str):
+async def check_url(key: str) -> typing.Tuple[typing.Union[str, typing.Tuple[str, str]], int]:
     # checks if a key for the short url is already taken
     # returns:
     # not taken:    (key, 1)
@@ -39,7 +41,7 @@ async def check_url(key: str):
             if loc == "":
                 taken = 3
             # taken
-            return [loc, url], taken
+            return (loc, url), taken
         elif resp.status in [200, 410]:
             # flagged
             return "", 3
@@ -56,7 +58,7 @@ async def create(url: str, key: str) -> str:
         return json.loads(await resp.text())["shorturl"]
 
 
-async def find_shortest_ok(url, _range: range = range(5, 10)):
+async def find_shortest_ok(url: str, _range: range = range(5, 10)) -> typing.Tuple[str, bool]:
     # finds shortest url (for generated character keys) which isn't taken ot matches the original url
     # returns:
     # not taken:            (key, False)
@@ -83,17 +85,18 @@ async def find_shortest_ok(url, _range: range = range(5, 10)):
     raise
 
 
-async def create_short(url: str, _range: range = range(5, 10)):
+async def create_short(url: str, _range: range = range(5, 10)) -> str:
     key_or_url, is_ok = await find_shortest_ok(url, _range)
     if is_ok:
         return key_or_url
     return await create(url, key_or_url)
 
 
-async def main(url):
+async def main(url: str) -> str:
     _range = range(5, 10)
     data = await create_short(url, _range)
     print(data)
+    return data
 
 
 if __name__ == "__main__":

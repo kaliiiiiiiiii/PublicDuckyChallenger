@@ -41,9 +41,9 @@ SYS64 = sys.maxsize > 2 ** 32
 DEFAULT_ENCODING = "utf-8"
 
 PWStore = typing.Union[
-            typing.Iterator[typing.Dict[str, str]],
-            typing.List[typing.Dict[str, str]]
-        ]
+    typing.Iterator[typing.Dict[str, str]],
+    typing.List[typing.Dict[str, str]]
+]
 
 
 # NOTE: In 1.0.0-rc1 we tried to use locale information to encode/decode
@@ -94,17 +94,17 @@ class Exit(Exception):
     UNKNOWN_ERROR = 100
     KEYBOARD_INTERRUPT = 102
 
-    def __init__(self, exitcode):
+    def __init__(self, exitcode: int) -> None:
         self.exitcode = exitcode
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return f"Premature program exit with exit code {self.exitcode}"
 
 
 class Credentials:
     """Base credentials backend manager"""
 
-    def __init__(self, db):
+    def __init__(self, db: str) -> None:
         self.db = db
         if not os.path.isfile(db):
             raise NotFoundError(f"ERROR - {db} database not found\n")
@@ -112,7 +112,7 @@ class Credentials:
     def __iter__(self) -> Iterator[tuple[str, str, str, int]]:
         pass
 
-    def done(self):
+    def done(self) -> None:
         """Override this method if the credentials subclass needs to do any
         action after interaction
         """
@@ -122,7 +122,7 @@ class Credentials:
 class SqliteCredentials(Credentials):
     """SQLite credentials backend manager"""
 
-    def __init__(self, profile):
+    def __init__(self, profile: str) -> None:
         db = os.path.join(profile, "signons.sqlite")
 
         super(SqliteCredentials, self).__init__(db)
@@ -140,7 +140,7 @@ class SqliteCredentials(Credentials):
             # yields hostname, encryptedUsername, encryptedPassword, encType
             yield i
 
-    def done(self):
+    def done(self) -> None:
         """Close the sqlite cursor and database connection"""
         super(SqliteCredentials, self).done()
 
@@ -151,7 +151,7 @@ class SqliteCredentials(Credentials):
 class JsonCredentials(Credentials):
     """JSON credentials backend manager"""
 
-    def __init__(self, profile):
+    def __init__(self, profile: str) -> None:
         db = os.path.join(profile, "logins.json")
 
         super(JsonCredentials, self).__init__(db)
@@ -253,7 +253,7 @@ def find_nss(locations: list[str], nssname: str) -> ct.CDLL:
         raise Exit(Exit.FAIL_LOCATE_NSS)
 
 
-def load_libnss():
+def load_libnss() -> ct.CDLL:
     """Load libnss into python using the CDLL interface"""
 
     locations: list[str] = [
@@ -353,7 +353,7 @@ def load_libnss():
 class c_char_p_fromstr(ct.c_char_p):
     """ctypes char_p override that handles encoding str to bytes"""
 
-    def from_param(self):
+    def from_param(self) -> bytes:
         return self.encode(DEFAULT_ENCODING)
 
 
@@ -368,7 +368,7 @@ class NSSProxy:
             ("len", ct.c_uint),
         ]
 
-        def decode_data(self):
+        def decode_data(self) -> str:
             _bytes = ct.string_at(self.data, self.len)
             return _bytes.decode(DEFAULT_ENCODING)
 
@@ -376,7 +376,7 @@ class NSSProxy:
         """Opaque structure representing a logical PKCS slot"""
 
     # noinspection PyTypeChecker,PyPep8Naming
-    def __init__(self, non_fatal_decryption=False):
+    def __init__(self, non_fatal_decryption: bool = False) -> None:
         # Locate libnss and try loading it
         self.libnss = load_libnss()
         self.non_fatal_decryption = non_fatal_decryption
@@ -402,7 +402,7 @@ class NSSProxy:
         self._set_ctypes(ct.c_char_p, "PR_ErrorToName", ct.c_int)
         self._set_ctypes(ct.c_char_p, "PR_ErrorToString", ct.c_int, ct.c_uint32)
 
-    def _set_ctypes(self, restype, name, *argtypes):
+    def _set_ctypes(self, restype: ct.c_long, name: str, *argtypes) -> None:
         """Set input/output types on libnss C functions for automatic type casting"""
         res = getattr(self.libnss, name)
         res.argtypes = argtypes
@@ -422,7 +422,7 @@ class NSSProxy:
 
         setattr(self, "_" + name, res)
 
-    def initialize(self, profile: str):
+    def initialize(self, profile: str) -> None:
         # The sql: prefix ensures compatibility with both
         # Berkley DB (cert8) and Sqlite (cert9) dbs
         profile_path = "sql:" + profile
@@ -437,7 +437,7 @@ class NSSProxy:
                 profile,
             )
 
-    def shutdown(self):
+    def shutdown(self) -> None:
         err_status: int = self._NSS_Shutdown()
 
         if err_status:
@@ -446,7 +446,7 @@ class NSSProxy:
                 "Couldn't shutdown current NSS profile",
             )
 
-    def authenticate(self):
+    def authenticate(self) -> None:
         """Unlocks the profile if necessary, in which case a password
         will prompted to the user.
         """
@@ -467,7 +467,7 @@ class NSSProxy:
             # Avoid leaking PK11KeySlot
             self._PK11_FreeSlot(keyslot)
 
-    def handle_error(self, exitcode: int, *logerror: Any):
+    def handle_error(self, exitcode: int, *logerror: Any) -> None:
         """If an error happens in libnss, handle it and print some debug information"""
         if logerror:
             LOG.error(*logerror)
@@ -484,7 +484,7 @@ class NSSProxy:
 
         raise Exit(exitcode)
 
-    def decrypt(self, data64):
+    def decrypt(self, data64: str) -> str:
         data = b64decode(data64)
         inp = self.SECItem(0, data, len(data))
         out = self.SECItem(0, None, 0)
@@ -516,22 +516,22 @@ class MozillaInteraction:
     Abstraction interface to Mozilla profile and lib NSS
     """
 
-    def __init__(self, non_fatal_decryption=False):
+    def __init__(self, non_fatal_decryption: bool = False) -> None:
         self.profile = None
         self.proxy = NSSProxy(non_fatal_decryption)
 
-    def load_profile(self, profile):
+    def load_profile(self, profile: str) -> None:
         """Initialize the NSS library and profile"""
         self.profile = profile
         self.proxy.initialize(self.profile)
 
-    def authenticate(self):
+    def authenticate(self) -> None:
         """Authenticate the the current profile is protected by a primary password,
         prompt the user and unlock the profile.
         """
         self.proxy.authenticate()
 
-    def unload_profile(self):
+    def unload_profile(self) -> None:
         """Shutdown NSS and deactivate current profile"""
         self.proxy.shutdown()
 
@@ -630,7 +630,7 @@ def read_profiles(base_path: str) -> ConfigParser:
     return profiles
 
 
-def get_all_firefox_creds(profile_path: str = None, non_fatal_decryption: bool = False, sub_stream=True) -> \
+def get_all_firefox_creds(profile_path: str = None, non_fatal_decryption: bool = False, sub_stream: bool = True) -> \
         typing.Generator[PWStore]:
     """gets all credentials for available for all profiles found"""
     if profile_path is None:
