@@ -4,11 +4,11 @@
 > Any illegal activities are strictly forbidden.
 
 > **Note** \
-> All code has been tested and targets Windows and Python==3.10.11
+> All code has been tested on and targets Windows and Python==3.10.11
 
 
 ### downloading this repo
-This repo requires having git-cli and [Python~=3.10](https://www.python.org/downloads/release/python-31011/) already installed
+This repo requires having [git-cli](https://git-scm.com/downloads) and [Python~=3.10](https://www.python.org/downloads/release/python-31011/) already installed
 ```
 git clone https://github.com/kaliiiiiiiiii/PublicDuckyChallenger
 cd PublicDuckyChallenger
@@ -167,7 +167,7 @@ The code can be found at [github.com/kaliiiiiiiiii/vercel_utils_server/@main/app
 ## Payload 3
 
 ### Password harvester
-Steal all available passwords from Opera, Brave, Chrome and Firefox
+Steals all available passwords from Opera, Brave, Chrome and Firefox
 
 <details>
 <summary>Details</summary>
@@ -208,7 +208,7 @@ Sends an E-Mail over the microsoft account on the device
 file: [edge_email.py](edge_email.py)
 > **Note** \
 > This currently only supports english and german devices.
-> Feel free to add languages at [L48-L77](edge_email.py#L48-L77)
+> Feel free to add languages at [L48-L78](edge_email.py#L48-L78)
 
 This works
 because Microsoft apparently decided
