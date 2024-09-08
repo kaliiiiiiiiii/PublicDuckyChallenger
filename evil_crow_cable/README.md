@@ -2,14 +2,13 @@
 > *Note:* \
 > This has only been tested with the Arduino IDE 2.3.2
 
-1. Start with the installation at [github.com/joelsernamoreno/EvilCrowCable-Pro#basic-requirements](https://github.com/joelsernamoreno/EvilCrowCable-Pro?tab=readme-ov-file#basic-requirements) \
+1. Follow the instructions at [github.com/joelsernamoreno/EvilCrowCable-Pro#basic-requirements](https://github.com/joelsernamoreno/EvilCrowCable-Pro?tab=readme-ov-file#basic-requirements) 
 2. Ensure having:
    > version `2.2.0` of `Adafruit TinyUSB Library` by `Adafruit` \
    > version `0.5.2` of `PIO USB` by `sekigon-gonnoc` \
    installed (in Library manager, do NOT update)
 3. delete the files inside [`EvilCrowCable-Pro/@main/firmware`](https://github.com/joelsernamoreno/EvilCrowCable-Pro/tree/main/firmware) and copy the ones at [this directory](/evil_crow_cable) into
 4. edit the url at [firmware.ino#L6](firmware.ino#L6) based on your needs
-
 
 ## Change Keyboard layout
 
@@ -35,7 +34,6 @@ C:\...\libraries/Adafruit_TinyUSB_Arduino/src/arduino/Adafruit_USBD_CDC.h:46:18:
 ```
 Ensure having the following exactly board & version installed: (in *Boards manager*)
 > `Raspberry Pi Pico/RP2040`, by `Earle F. Philhower`:3.3.0
-
 
 
 ### HID.h: No such file or directory
