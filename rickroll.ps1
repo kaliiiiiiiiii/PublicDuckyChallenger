@@ -73,8 +73,8 @@ function StartKiosk([string]$url, [int]$timeout){
 
 
         # maximize volume & disable mute
-        [audio]::Mute = $false
-        [audio]::Volume = 1
+        # [audio]::Mute = $false
+        [audio]::Volume = 0.5
 
         try{Stop-Process -Name explorer}catch{}
 
@@ -94,7 +94,7 @@ function StartKiosk([string]$url, [int]$timeout){
     [System.Windows.Forms.Cursor]::Position = $originalMousePosition
 }
 
-$timeout = 60 * 3 # 3 minutes
+$timeout = 60*1 # 1 minute
 # $url = "https://fakeupdate.net/win10ue/"
 $url = "https://kaliiiiiiiiii.github.io/rickroll/"
 StartKiosk  $url $timeout
